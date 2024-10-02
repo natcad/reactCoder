@@ -1,0 +1,61 @@
+@use '../asbtract/variables';
+
+nav{
+    position: fixed;
+    top:0;
+    left: 0;
+    width:100%;
+    height:70px;
+    box-shadow:0 4px 4px rgb(0, 0, 0, 0.25) ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px 20px 25px;
+    background-color: #E5E6E6;
+    z-index: 1000;  
+    
+    .cart-widget{
+        height: 25px;
+        width: auto;
+        cursor: pointer;
+        .cart-img{
+            width: 100%;
+            height: 100%;
+        }    
+       
+    }
+    .logo-img{
+        width:auto;
+        height: 40px;
+    }
+    ul{
+        height: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 45px;
+        a{  
+            font-family: variables.$font-family;
+            color:variables.$primary-black-color;
+            font-weight: 500;
+            &:hover{
+                color:variables.$primary-green-color;
+            }
+            &:active{
+                color:variables.$primary-green-color;
+            }
+        }
+        
+    }
+
+    @media (max-width: 768px) {
+        ul{
+            display:none
+        }
+    }
+}
+
+.carrito{
+    color: red !important;;
+}
