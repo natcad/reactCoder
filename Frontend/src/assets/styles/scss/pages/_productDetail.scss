@@ -1,0 +1,166 @@
+@import "../asbtract/variables";
+.detail-container {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  padding-top: 100px;
+  .item-detail {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    justify-content: center;
+    .images-detail-container {
+      padding: 20px;
+      width: auto;
+      height: 100%;
+      .carrousel {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .main-image {
+          width: 500px;
+          height: 500px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .carrousel-btn {
+          height: 50px;
+          width: 50px;
+          background-color: $primary-green-color;
+          color: white;
+          font-size: 14pt;
+          font-weight: 600;
+          border-radius: 25px;
+          border: none;
+          cursor: pointer;
+          &:hover {
+            background-color: lighten($primary-green-color, 15%);
+          }
+        }
+      }
+    }
+    .detail-info-container {
+      width: 40%;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 20px;
+      .detail-text {
+        padding: 10px 40px 10px 40px;
+        h2 {
+          font-size: 24pt;
+          padding-bottom: 10px;
+        }
+        h3 {
+          font-size: 20pt;
+        }
+        p {
+          padding-top: 15px;
+          font-size: 13pt;
+        }
+      }
+      .buy-container {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        padding: 20px 0px;
+        justify-content: space-evenly;
+        .buy-btn {
+          height: 40px;
+          width: 150px;
+          background-color: $primary-green-color;
+          border-radius: 15px;
+          padding: 10px;
+          color: white;
+          border: none;
+          font-family: $font-family;
+          font-size: 14px;
+          cursor: pointer;
+          &:hover {
+            background: $primary-lightgreen-color;
+          }
+        }
+        .product-counter {
+          height: 40px;
+          width: 150px;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          input {
+            height: 40px;
+            width: 70px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid $primary-green-color;
+          }
+          button {
+            height: 20px;
+            width: 20px;
+            border: none;
+            background-color: white;
+            color: $primary-black-color;
+            font-weight: 500;
+            font-size: 14pt;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .more-info {
+        width: 80%;
+        height: auto;
+        background-color: $primary-green-color;
+        display: flex;
+        color: white;
+        padding: 10px;
+        border-radius: 40px;
+        justify-content: space-evenly;
+
+        div {
+          width: auto;
+          display: flex;
+          .image-container {
+            padding-right: 5px;
+            position: relative;
+            display: inline-block;
+
+            img {
+              width: 20px;
+              height: 20px;
+              object-fit: cover;
+            }
+            span {
+              display: none;
+              position: absolute;
+              top: -100%;
+              left: 50%;
+              transform: translateX(-50%);
+              padding: 5px;
+              background-color:#88AF9A ;
+              color: #fff;
+              border-radius: 5px;
+              font-size: 0.8rem;
+              white-space: nowrap;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+
+            &:hover span {
+              display: block;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
