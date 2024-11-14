@@ -4,9 +4,12 @@ import ProductCounter from "../../common/ProductCounter";
 import Drop from "../../assets/images/icons/drop.svg";
 import Shovel from "../../assets/images/icons/shovel.svg";
 import Sun from "../../assets/images/icons/sun.svg";
+import { cartContext } from "../../context/CartContext";
+import { useContext } from "react";
 const ItemDetail = ({ product }) => {
   const [currrentIndex, setCurrentIndex] = useState(0);
-
+  const [quantity, setQuantity] = useState(1);
+  const { addProductInCart } = useContext(cartContext);
   const handleClickPrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? product.imagen.length - 1 : prevIndex - 1
@@ -17,6 +20,10 @@ const ItemDetail = ({ product }) => {
     setCurrentIndex((prevIndex) =>
       prevIndex === product.imagen.length - 1 ? 0 : prevIndex + 1
     );
+  };
+  const addProduct = () => {
+    const productCart = { ...product, quantity: quantity };
+    addProductInCart(productCart);
   };
 
   return (
@@ -40,11 +47,16 @@ const ItemDetail = ({ product }) => {
           <h3>${product.precio}</h3>
           <p>{product.descripcion}</p>
         </div>
-        <div className="buy-container">
-          <ProductCounter stock={product.stock} />
-          <BuyButton />
-        </div>
-
+        {product.stock > 0 ? (
+          <div className="buy-container">
+            <ProductCounter stock={product.stock} setQuantity={setQuantity} />
+            <BuyButton handleAddProduct={addProduct} />
+          </div>
+        ) : (
+          <div className="buy-container">
+            <p>No hay stock disponible</p>
+          </div>
+        )}
         <div className="more-info">
           <div>
             <div className="image-container">

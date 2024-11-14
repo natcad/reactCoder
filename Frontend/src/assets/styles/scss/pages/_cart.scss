@@ -1,0 +1,147 @@
+@import "../asbtract/variables";
+.cart-page {
+  margin-top: 60px;
+  padding: 10px;
+}
+.empty-cart {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  .cart-svg {
+    width: 120px;
+    height: 120px;
+    color: lightgray;
+  }
+  a {
+    background-color: $primary-green-color;
+    height: 40px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    &:hover {
+      background-color: lighten($primary-green-color, 15%);
+    }
+  }
+}
+.cart-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  .cart-content {
+    width: 60%;
+    max-height: 600px;
+    min-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    &__header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      button {
+        background-color: rgb(217, 55, 55);
+        outline: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 8px;
+        padding: 10px;
+        &:hover {
+          background-color: darken(rgb(217, 55, 55), 10%);
+        }
+      }
+    }
+    .cart-item {
+      width: 100%;
+      display: flex;
+      border-bottom: solid 1px lightgray;
+      padding: 20px 0px;
+      &__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &--img {
+          width: 60px;
+          height: 60px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      button {
+        background-color: rgb(217, 55, 55);
+        outline: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 8px;
+        padding: 8px;
+        &:hover {
+          background-color: darken(rgb(217, 55, 55), 10%);
+        }
+      }
+    }
+  }
+
+  .cart-price-container {
+    background-color: rgb(250, 250, 250);
+    padding: 25px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .cart-price{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 0px;
+        p{
+            color: rgb(57, 57, 57);
+            padding-bottom: 5px;
+        }
+        &__info{
+            text-align: right;
+        }
+        .total{
+            color: black;
+            font-weight: 600;
+        }
+    }
+    a {
+      background-color: $primary-green-color;
+      height: 40px;
+      padding: 10px 20px;
+      color: white;
+      font-weight: 500;
+      border-radius: 8px;
+      width: 180px;
+      text-align: center;
+      &:hover {
+        background-color: lighten($primary-green-color, 15%);
+      }
+    }
+  }
+}

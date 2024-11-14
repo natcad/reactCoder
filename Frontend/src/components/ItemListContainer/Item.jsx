@@ -1,7 +1,15 @@
 import BuyButton from "../../common/BuyButton";
 import HeartWidget from "../../common/HeartWidget";
 import { Link } from "react-router-dom";
+import { cartContext } from "../../context/CartContext";
+import { useContext } from "react";
 const Item = ({ product }) => {
+  const { addProductInCart } = useContext(cartContext);
+  const addProduct = () => {
+    const productCart = { ...product, quantity: 1 };
+    addProductInCart(productCart);
+  };
+
   return (
     <>
       <div className="product-card" key={product.id}>
@@ -14,9 +22,11 @@ const Item = ({ product }) => {
             <HeartWidget />
           </div>
           <p>Precio: ${product.precio}</p>
-          <div className="btn-container">
-            <BuyButton product={product} />
-          </div>
+          {product.stock>0? (<div className="btn-container">
+            <BuyButton handleAddProduct={addProduct} />
+          </div>):
+          (<div className="btn-container"></div>)
+          }
         </div>
       </div>
     </>

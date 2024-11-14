@@ -1,50 +1,42 @@
+import { getDoc, getDocs, collection, doc } from "firebase/firestore";
+import db from "../../db/db.js";
+
 const getProducts = () => {
-  return fetch("http://localhost:4000/productos")
-    .then((response) => response.json())
-    .catch((error) => console.error(error));
+    const productsRef = collection(db, "productos");
+    return getDocs(productsRef).then((dataDb) => {
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
+      });
+      return data; 
+    });
+  };
+  
+const getProductById = (idProduct) => {
+  const productsRef = doc(db, "productos", idProduct);
+  getDoc(productsRef).then((dataDb) => {
+    return { id: dataDb.id, ...dataDb.data() };
+  });
 };
-const getProductById = (idProduct) =>{
-    return fetch(`http://localhost:4000/productos/${idProduct}`)
-    .then ((response)=>response.json())
-    .catch((error) => console.error(error))
-}
 
-const addProduct = (newProduct) =>{
-    return fetch("http://localhost:4000/productos", {
-        method:"POST",
-        headers: {'COntent-Type': 'application/json'},
-        body: JSON.stringify(newProduct)
-    })
-    .then((response)=>response.json())
-    .catch((error) => console.error(error))
-}
-
-const modProduct = (idProduct, mod) =>{
-    return fetch( `http://localhost:4000/productos/${idProduct}`,{
-        method: "PUT",
-        headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify(mod)
-    })
-    .then((response)=>response.json())
-    .catch((error)=>console.error(error))
-}
-
-const deleteProduct =(idProduct)=>{
-    return fetch(`http://localhost:4000/productos/${idProduct}`,{
-        method: "DELETE"
-    })
-    .then((response)=>response.json())
-    .catch((error)=>console.error(error))
-}
-
-const getCategories=()=>{
-    return fetch("http://localhost:4000/categorias")
-    .then((response)=>response.json())
-    .catch((error)=>console.error(error))
-}
-const getCategoriesById=(idCategory)=>{
-    return fetch(`http://localhost:4000/categorias/${idCategory}`)
-    .then((response)=>response.json())
-    .catch((error)=>console.error(error))
-}
-export {getProducts,getProductById,addProduct,modProduct, deleteProduct, getCategories, getCategoriesById}
+const getCategories = () => {
+    const categoryRef = collection(db, "categorias");
+    return getDocs(categoryRef).then((dataDb) => {
+      const data = dataDb.docs.map((categoryDb) => {
+        return { id: categoryDb.id, ...categoryDb.data() };
+      });
+      return data; 
+    });
+  };
+  
+const getCategoriesById = (idCategory) => {
+    const categoryRef = doc(db, "categorias", idCategory);
+    getDoc(categoryRef).then((dataDb) => {
+      return { id: dataDb.id, ...dataDb.data() };
+    });
+};
+export {
+  getProducts,
+  getProductById,
+  getCategories,
+  getCategoriesById,
+};

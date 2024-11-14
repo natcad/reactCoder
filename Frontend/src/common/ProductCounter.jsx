@@ -1,22 +1,26 @@
 import { useState } from "react";
 
-const ProductCounter = ({stock}) => {
+const ProductCounter = ({stock, setQuantity}) => {
   const [count, setCount] = useState(1);
   
   const increment=()=>{
     if(count < stock){
         setCount(count+1);
+        setQuantity(count+1)
     }
   };
 
   const decrement = ()=>{
     if (count>1){
         setCount(count-1)
+        setQuantity(count+1)
     }
   };
   const handleChange = (e) => {
     const value = Math.max(1, Math.min(stock, Number(e.target.value)));
     setCount(value);
+    setQuantity(value)
+
   };
   return (
     <div className="product-counter">

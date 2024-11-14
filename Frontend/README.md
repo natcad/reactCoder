@@ -9,9 +9,11 @@ Este proyecto es una tienda en línea de plantas, creada con React y construida 
 -React
 -Vite
 -Sccs
+
+## Dependencias:
+
 -Toastify
--Node js (backend harcodeado que simula una api con productos en el puerto /4000 usando el script node server.js para levantarlo)
-
-
-
-
+-Firebase
+-yup
+-fontawesome
+-react-intersection-observer

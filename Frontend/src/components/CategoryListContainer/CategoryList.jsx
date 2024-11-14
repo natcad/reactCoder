@@ -12,7 +12,7 @@ const CategoryList = ({ categorias  }) => {
         >Todos los Productos</NavLink >
       </li>
       {categorias.map((categoria) => (
-        <Category id={categoria.id} categoria={categoria.title}></Category>
+        <Category key={categoria.id} id={categoria.id} categoria={categoria.title}></Category>
       ))}
     </ul>
   );

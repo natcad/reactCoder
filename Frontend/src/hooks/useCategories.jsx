@@ -3,7 +3,6 @@ import { getCategories } from "../utils/FetchApi";
 const useCategories = () => {
   const [categories, setCategories] = useState([]);
   const[loading,setLoading]=useState(true);
- console.log(getCategories());
   useEffect(() => {
     setLoading(true);
     getCategories()

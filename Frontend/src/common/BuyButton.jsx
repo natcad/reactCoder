@@ -1,10 +1,9 @@
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css'; 
-const BuyButton = ({product}) =>{
+const BuyButton = ({handleAddProduct}) =>{
 
     const handleBuyButton=()=>{
-        console.log("Producto añadido");
-        console.log(product);
+        handleAddProduct();
         Toastify({
             text: "Producto añadido al carrito correctamente.",
             duration:2000,

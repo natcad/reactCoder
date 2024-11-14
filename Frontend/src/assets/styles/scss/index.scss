@@ -5,6 +5,8 @@
 @use './asbtract/variables';
 @use './pages/ourProducts';
 @use './pages/productDetail';
+@use './pages/cart';
+@use './pages/checkout';
 body{
     font-family: variables.$font-family;
 }
