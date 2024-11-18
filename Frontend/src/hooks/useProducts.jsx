@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../utils/FetchApi";
+import { getProducts } from "../utils/fetchApi.js";
 const useProducts = () => {
   const [products, setProducts] = useState([]);
   const[loading,setLoading]=useState(true);
