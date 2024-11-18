@@ -1,7 +1,7 @@
 import useProducts from "../../hooks/useProducts";
 import ItemList from "./ItemList";
 import Loader from "../../common/Loader";
-import hocFilterProducts from "../../hoc/HocFilterProducts";
+import hocFilterProducts from "../../hoc/hocFilterProducts";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 const ItemListContainer = ({ products }) => {
