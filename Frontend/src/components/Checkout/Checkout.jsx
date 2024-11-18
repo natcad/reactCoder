@@ -58,7 +58,7 @@ const Checkout = () => {
     <div
       className="background"
       style={{
-        backgroundImage: "url('/images/background/background.png')",
+        backgroundImage: "url('/images/background/background.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

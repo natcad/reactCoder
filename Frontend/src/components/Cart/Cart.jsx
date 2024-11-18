@@ -11,7 +11,7 @@ const Cart = () => {
     <div
       className="cart-page"
       style={{
-        backgroundImage: "url('/images/background/background.png')",
+        backgroundImage: "url('/images/background/background.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
